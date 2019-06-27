@@ -22,7 +22,7 @@ function TabContainer(props: TabContainerProps): React.ReactElement {
 const useStyles = makeStyles({
   root: {
     flexGrow: 1,
-    minHeight: "1400px"
+    minHeight: "300px"
   }
 });
 
