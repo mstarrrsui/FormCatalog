@@ -5,6 +5,8 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 import Typography from "@material-ui/core/Typography";
 
+import SortableTable from "./SortableTable";
+
 interface TabContainerProps {
   children?: React.ReactNode;
 }
@@ -45,7 +47,7 @@ export default function CenteredTabs(): React.ReactElement {
         <Tab label="Item Two" />
         <Tab label="Item Three" />
       </Tabs>
-      {value === 0 && <TabContainer>Item One</TabContainer>}
+      {value === 0 && <SortableTable />}
       {value === 1 && <TabContainer>Item Two</TabContainer>}
       {value === 2 && <TabContainer>Item Three</TabContainer>}
     </Paper>

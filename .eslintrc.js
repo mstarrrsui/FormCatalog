@@ -23,13 +23,13 @@ module.exports = {
     "@typescript-eslint/no-explicit-any": "warn",
     "@typescript-eslint/explicit-member-accessibility": "off",
     //"@typescript-eslint/no-var-requires": "warn",
-    "@typescript-eslint/explicit-function-return-type": [
-      "warn",
-      {
-        allowExpressions: true,
-        allowTypedFunctionExpressions: true
-      }
-    ],
+    // "@typescript-eslint/explicit-function-return-type": [
+    //   "warn",
+    //   {
+    //     allowExpressions: true,
+    //     allowTypedFunctionExpressions: true
+    //   }
+    // ],
     //"@typescript-eslint/prefer-interface": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
