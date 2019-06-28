@@ -78,7 +78,9 @@ const useStyles = makeStyles(theme => ({
   root: {
     paddingLeft: theme.spacing(2),
     paddingRight: theme.spacing(1),
-    marginLeft: theme.spacing(8)
+    //marginLeft: theme.spacing(1),
+    //marginRight: theme.spacing(1),
+    width: "auto"
   },
   seeMore: {
     marginTop: theme.spacing(3)
@@ -89,10 +91,10 @@ export default function Orders() {
   const classes = useStyles();
   return (
     <React.Fragment>
-      <Typography className={classes.root} variant="h6" id="tableTitle">
-        Nutrition
-      </Typography>
       <Container className={classes.root} maxWidth="lg">
+        <Typography variant="h6" id="tableTitle">
+          Nutrition
+        </Typography>
         <Table size="small">
           <TableHead>
             <TableRow>

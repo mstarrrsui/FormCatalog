@@ -48,8 +48,8 @@ export default function CenteredTabs(): React.ReactElement {
         <Tab label="Item Two" />
         <Tab label="Item Three" />
       </Tabs>
-      {value === 0 && <SortableTable />}
-      {value === 1 && <SimpleTable />}
+      {value === 1 && <SortableTable />}
+      {value === 0 && <SimpleTable />}
       {value === 2 && <TabContainer>Item Three</TabContainer>}
     </Paper>
   );
