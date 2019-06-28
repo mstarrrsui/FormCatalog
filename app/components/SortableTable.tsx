@@ -1,12 +1,12 @@
 import React from "react";
 import clsx from "clsx";
-import PropTypes from "prop-types";
 import {
   createStyles,
   lighten,
   makeStyles,
   Theme
 } from "@material-ui/core/styles";
+
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -366,6 +366,7 @@ export default function EnhancedTable() {
             <TableBody>
               {stableSort(rows, getSorting(order, orderBy))
                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                .filter(row => row)
                 .map((row, index) => {
                   const isItemSelected = isSelected(row.name);
                   const labelId = `enhanced-table-checkbox-${index}`;
@@ -403,6 +404,8 @@ export default function EnhancedTable() {
                 })}
               {emptyRows > 0 && (
                 <TableRow style={{ height: 49 * emptyRows }}>
+                  {" "}
+                  //49 should change if padding changes
                   <TableCell colSpan={6} />
                 </TableRow>
               )}
