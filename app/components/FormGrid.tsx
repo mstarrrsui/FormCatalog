@@ -1,6 +1,5 @@
 import * as React from "react";
 import useFormFetcher from "../hooks/UseFormFetcher";
-import Form from "../models/Form";
 
 import {
   Container,
@@ -32,18 +31,6 @@ const Forms: React.SFC = function() {
   const { forms, isLoading, error } = useFormFetcher();
 
   let titleText = "Forms";
-
-  const form: Form = {
-    DocID: 1,
-    DocNumber: "aasda",
-    SubTypesPiped: "",
-    Name: "sdf",
-    DocType: "sdf",
-    Edition: "sdf",
-    IsInactive: false
-  };
-
-  console.log(form.DocNumber);
 
   if (error) {
     titleText = error.message;
