@@ -1,5 +1,7 @@
 import * as React from "react";
+import useFormFetcher from "../hooks/UseFormFetcher";
 import Form from "../models/Form";
+
 import {
   Container,
   Typography,
@@ -10,43 +12,6 @@ import {
   TableCell,
   TableBody
 } from "@material-ui/core";
-
-const DATA_URL =
-  "http://localhost:3230/formslibrary/api/catalogs/find/forms/table";
-
-interface FormFetcherResult {
-  isLoading: boolean;
-  error: Error | null;
-  forms: Form[];
-}
-
-const useTaskFetcher = (): FormFetcherResult => {
-  const [forms, setForms] = React.useState<Array<Form>>([]);
-  const [isLoading, setIsLoading] = React.useState(false);
-  const [error, setError] = React.useState<Error | null>(null);
-
-  React.useEffect(() => {
-    setIsLoading(true);
-    fetch(DATA_URL)
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        } else {
-          console.log("error...");
-          throw Error("Error fetching the data!!!");
-        }
-      })
-      .then(formData => {
-        setForms(formData.Data);
-        setIsLoading(false);
-      })
-      .catch(error => {
-        setIsLoading(false);
-        setError(error);
-      });
-  }, []);
-  return { isLoading, error, forms };
-};
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -64,9 +29,21 @@ const useStyles = makeStyles(theme => ({
 const Forms: React.SFC = function() {
   const classes = useStyles();
 
-  const { forms, isLoading, error } = useTaskFetcher();
+  const { forms, isLoading, error } = useFormFetcher();
 
   let titleText = "Forms";
+
+  const form: Form = {
+    DocID: 1,
+    DocNumber: "aasda",
+    SubTypesPiped: "",
+    Name: "sdf",
+    DocType: "sdf",
+    Edition: "sdf",
+    IsInactive: false
+  };
+
+  console.log(form.DocNumber);
 
   if (error) {
     titleText = error.message;
