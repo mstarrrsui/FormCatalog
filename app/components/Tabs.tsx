@@ -3,22 +3,23 @@ import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import Typography from "@material-ui/core/Typography";
+//import Typography from "@material-ui/core/Typography";
 
 import SortableTable from "./SortableTable";
 import SimpleTable from "./SimpleTable";
+import Forms from "./Forms";
 
-interface TabContainerProps {
-  children?: React.ReactNode;
-}
+// interface TabContainerProps {
+//   children?: React.ReactNode;
+// }
 
-function TabContainer(props: TabContainerProps): React.ReactElement {
-  return (
-    <Typography component="div" style={{ padding: 8 * 3 }}>
-      {props.children}
-    </Typography>
-  );
-}
+// function TabContainer(props: TabContainerProps): React.ReactElement {
+//   return (
+//     <Typography component="div" style={{ padding: 8 * 3 }}>
+//       {props.children}
+//     </Typography>
+//   );
+// }
 
 const useStyles = makeStyles({
   root: {
@@ -48,9 +49,9 @@ export default function CenteredTabs(): React.ReactElement {
         <Tab label="Item Two" />
         <Tab label="Item Three" />
       </Tabs>
-      {value === 1 && <SortableTable />}
-      {value === 0 && <SimpleTable />}
-      {value === 2 && <TabContainer>Item Three</TabContainer>}
+      {value === 0 && <Forms />}
+      {value === 1 && <SimpleTable />}
+      {value === 2 && <SortableTable />}
     </Paper>
   );
 }
