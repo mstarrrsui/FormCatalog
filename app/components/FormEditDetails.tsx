@@ -107,6 +107,7 @@ export default function TextFields() {
               label="Edition"
               className={classes.dense}
               margin="dense"
+              inputProps={{ maxLength: 3 }}
             />
           </Grid>
           <Grid item md={4} sm={12}>
