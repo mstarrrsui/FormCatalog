@@ -6,8 +6,8 @@ import Tab from "@material-ui/core/Tab";
 //import Typography from "@material-ui/core/Typography";
 
 import SortableTable from "./SortableTable";
-import SimpleTable from "./SimpleTable";
 import FormGrid from "./FormGrid";
+import FormEditDetails from "./FormEditDetails";
 
 // interface TabContainerProps {
 //   children?: React.ReactNode;
@@ -49,8 +49,8 @@ export default function CenteredTabs(): React.ReactElement {
         <Tab label="Item Two" />
         <Tab label="Item Three" />
       </Tabs>
-      {value === 0 && <FormGrid />}
-      {value === 1 && <SimpleTable />}
+      {value === 0 && <FormEditDetails />}
+      {value === 1 && <FormGrid />}
       {value === 2 && <SortableTable />}
     </Paper>
   );
