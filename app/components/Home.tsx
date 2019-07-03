@@ -1,10 +1,5 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 
-const Home: React.SFC = () => (
-  <Button variant="contained" color="primary">
-    Hello World
-  </Button>
-);
+const Home: React.SFC = () => <div>Hello World</div>;
 
 export default Home;
