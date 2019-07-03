@@ -5,26 +5,35 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import FormControl from "react-bootstrap/FormControl";
 import Form from "react-bootstrap/Form";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
+
+const StyledLink = styled(NavLink)`
+  text-decoration: none;
+  color: inherit;
+`;
 
 export default function NavBar(): React.ReactElement {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="md">
       <Navbar.Brand href="#home">Form Catalog</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#link">Link</Nav.Link>
-          <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">
-              Another action
-            </NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4">
-              Separated link
-            </NavDropdown.Item>
+          <Nav.Link>
+            <StyledLink exact to="/">
+              Home
+            </StyledLink>
+          </Nav.Link>
+          <Nav.Link className="nav-link">
+            <StyledLink activeStyle={{ fontWeight: "bold" }} to="/link">
+              Hello
+            </StyledLink>
+          </Nav.Link>
+          <Nav.Link>Test</Nav.Link>
+          <NavDropdown title="Forms" id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1">Simple</NavDropdown.Item>
+            <NavDropdown.Item href="#action/3.2">Complex</NavDropdown.Item>
           </NavDropdown>
         </Nav>
         <Form inline>
