@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 import { NavLink } from "react-router-dom";
 
-const Styles = styled(Navbar)`
+const StyledNavBar = styled(Navbar)`
   .navbar {
     background-color: #222;
   }
@@ -32,7 +32,7 @@ const Styles = styled(Navbar)`
 
 export default function NavBar(): React.ReactElement {
   return (
-    <Styles bg="light" expand="md">
+    <StyledNavBar bg="light" expand="md">
       <Navbar.Brand href="#home">Form Catalog</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
@@ -51,6 +51,6 @@ export default function NavBar(): React.ReactElement {
           <Button variant="outline-success">Search</Button>
         </Form>
       </Navbar.Collapse>
-    </Styles>
+    </StyledNavBar>
   );
 }
