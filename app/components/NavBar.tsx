@@ -8,16 +8,20 @@ import styled from "styled-components";
 
 import { NavLink } from "react-router-dom";
 
-const Styles = styled.div`
+const Styles = styled(Navbar)`
   .navbar {
     background-color: #222;
+  }
+  .nav-item {
+    margin-left: 8px;
+    margin-right: 8px;
   }
   a,
   .navbar-brand,
   .navbar-nav .nav-link {
-    color: #bbb;
+    color: #414752;
     &:hover {
-      color: #282e38;
+      color: #7d9bd1;
       text-decoration: none;
     }
   }
@@ -28,25 +32,25 @@ const Styles = styled.div`
 
 export default function NavBar(): React.ReactElement {
   return (
-    <Styles>
-      <Navbar bg="light" expand="md">
-        <Navbar.Brand href="#home">Form Catalog</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Item>
-              <NavLink exact to="/">
-                blah
-              </NavLink>
-            </Nav.Item>
-            <NavLink to="/link">Test2</NavLink>
-          </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
-        </Navbar.Collapse>
-      </Navbar>
+    <Styles bg="light" expand="md">
+      <Navbar.Brand href="#home">Form Catalog</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Item>
+            <NavLink exact to="/">
+              Home
+            </NavLink>
+          </Nav.Item>
+          <Nav.Item>
+            <NavLink to="/link">Page2</NavLink>
+          </Nav.Item>
+        </Nav>
+        <Form inline>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+          <Button variant="outline-success">Search</Button>
+        </Form>
+      </Navbar.Collapse>
     </Styles>
   );
 }
