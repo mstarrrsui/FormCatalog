@@ -4,10 +4,8 @@ import {
   Grid,
   Table,
   TableHeaderRow,
-  TableGroupRow,
   DragDropProvider,
   Toolbar,
-  GroupingPanel,
   TableFilterRow
 } from "@devexpress/dx-react-grid-bootstrap4";
 // import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap3';
@@ -17,8 +15,6 @@ import {
   Sorting,
   IntegratedSorting,
   IntegratedGrouping,
-  GroupingState,
-  Grouping,
   FilteringState,
   IntegratedFiltering,
   Filter
@@ -27,9 +23,6 @@ import {
 const MyGrid = () => {
   const [sorting, setSorting] = React.useState<Array<Sorting>>([
     { columnName: "DocNumber", direction: "asc" }
-  ]);
-  const [grouping, setGrouping] = React.useState<Array<Grouping>>([
-    { columnName: "DocType" }
   ]);
   const [filters, setFilters] = React.useState<Array<Filter>>();
   const { forms, error, isLoading } = useFormFetcher(
@@ -61,11 +54,9 @@ const MyGrid = () => {
         <FilteringState filters={filters} onFiltersChange={setFilters} />
         <IntegratedFiltering />
         <IntegratedSorting />
-        <IntegratedGrouping />
         <Table />
-        <TableHeaderRow showSortingControls showGroupingControls />
+        <TableHeaderRow showSortingControls />
         <TableFilterRow />
-        <Toolbar />
       </Grid>
     </React.Fragment>
   );
