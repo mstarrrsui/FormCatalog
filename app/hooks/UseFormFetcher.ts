@@ -1,8 +1,8 @@
 import React from "react";
 import Form from "../models/Form";
 
-const DATA_URL =
-  "http://localhost:3230/formslibrary/api/catalogs/find/forms/table";
+// const DATA_URL =
+//   "http://localhost:3230/formslibrary/api/catalogs/find/forms/table";
 
 interface FormFetcherResult {
   isLoading: boolean;
@@ -10,14 +10,14 @@ interface FormFetcherResult {
   forms: Form[];
 }
 
-const useFormFetcher = (): FormFetcherResult => {
+const useFormFetcher = (dataUrl: string): FormFetcherResult => {
   const [forms, setForms] = React.useState<Array<Form>>([]);
   const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState<Error | null>(null);
 
   React.useEffect(() => {
     setIsLoading(true);
-    fetch(DATA_URL)
+    fetch(dataUrl)
       .then(res => {
         if (res.ok) {
           return res.json();
@@ -34,7 +34,7 @@ const useFormFetcher = (): FormFetcherResult => {
         setIsLoading(false);
         setError(error);
       });
-  }, []);
+  }, [dataUrl]);
   return { isLoading, error, forms };
 };
 
