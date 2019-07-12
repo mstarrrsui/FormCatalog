@@ -22,7 +22,11 @@ import {
 import Spinner from "./Spinner";
 
 const TableComponent = ({ ...restProps }) => (
-  <Table.Table {...restProps} className="table-striped" />
+  <Table.Table {...restProps} className="table-sm" />
+);
+
+const TableFilterRowComponent = ({ ...restProps }: Table.RowProps) => (
+  <TableFilterRow.Row {...restProps} className="" />
 );
 
 const MyGrid = () => {
@@ -59,7 +63,7 @@ const MyGrid = () => {
         <IntegratedSorting />
         <Table tableComponent={TableComponent} />
         <TableHeaderRow showSortingControls />
-        <TableFilterRow />
+        <TableFilterRow className="asd" />
       </Grid>
     </React.Fragment>
   );

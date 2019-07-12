@@ -45,10 +45,11 @@ module.exports = ({ mode } = { mode: "development" }) => {
           exclude: /node_modules/
         },
         {
-          test: /\.css$/,
+          test: /\.(s)?css$/,
           use: [
             isDevelop ? "style-loader" : MiniCssExtractPlugin.loader,
-            "css-loader"
+            "css-loader",
+            "sass-loader"
           ]
         },
         {
