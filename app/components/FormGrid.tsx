@@ -21,6 +21,10 @@ import {
 } from "@devexpress/dx-react-grid";
 import Spinner from "./Spinner";
 
+const TableComponent = ({ ...restProps }) => (
+  <Table.Table {...restProps} className="table-striped" />
+);
+
 const MyGrid = () => {
   const [sorting, setSorting] = React.useState<Array<Sorting>>([
     { columnName: "DocNumber", direction: "asc" }
@@ -31,9 +35,7 @@ const MyGrid = () => {
   );
 
   let message = "";
-  if (isLoading) {
-    message = "Loading.. please wait....";
-  } else if (error) {
+  if (error) {
     message = `Error: ${error.message}`;
   }
 
@@ -55,7 +57,7 @@ const MyGrid = () => {
         <FilteringState filters={filters} onFiltersChange={setFilters} />
         <IntegratedFiltering />
         <IntegratedSorting />
-        <Table />
+        <Table tableComponent={TableComponent} />
         <TableHeaderRow showSortingControls />
         <TableFilterRow />
       </Grid>

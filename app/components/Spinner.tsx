@@ -1,4 +1,5 @@
 import * as React from "react";
+import isPropValid from "@emotion/is-prop-valid";
 
 // tslint:disable-next-line
 import spinnerimg from "../images/loading.gif";
@@ -8,7 +9,9 @@ interface Props {
   loading: boolean;
 }
 
-const Container = styled("div")<Props>(props => {
+const Container = styled("div", {
+  shouldForwardProp: prop => isPropValid(prop) && prop !== "loading"
+})<Props>(props => {
   if (!props.loading) {
     return {
       display: "none"
