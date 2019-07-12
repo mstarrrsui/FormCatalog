@@ -19,6 +19,7 @@ import {
   IntegratedFiltering,
   Filter
 } from "@devexpress/dx-react-grid";
+import Spinner from "./Spinner";
 
 const MyGrid = () => {
   const [sorting, setSorting] = React.useState<Array<Sorting>>([
@@ -38,7 +39,7 @@ const MyGrid = () => {
 
   return (
     <React.Fragment>
-      <span>{message}</span>
+      <Spinner loading={isLoading} />
       <Grid
         rows={forms}
         columns={[
