@@ -1,3 +1,5 @@
+/** @jsx jsx */
+
 import * as React from "react";
 //import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-material-ui';
 import {
@@ -19,15 +21,20 @@ import {
   IntegratedFiltering,
   Filter
 } from "@devexpress/dx-react-grid";
+import { css, jsx } from "@emotion/core";
 import Spinner from "./Spinner";
 
 const TableComponent = ({ ...restProps }) => (
   <Table.Table {...restProps} className="table-sm" />
 );
 
-const TableFilterRowComponent = ({ ...restProps }: Table.RowProps) => (
-  <TableFilterRow.Row {...restProps} className="" />
-);
+const myFilterInputClass = css`
+  height: 24px;
+`;
+
+const TableFilterEditorComponent: React.SFC<TableFilterRow.EditorProps> = ({
+  ...restProps
+}) => <TableFilterRow.Editor {...restProps} css={myFilterInputClass} />;
 
 const MyGrid = () => {
   const [sorting, setSorting] = React.useState<Array<Sorting>>([
@@ -63,7 +70,10 @@ const MyGrid = () => {
         <IntegratedSorting />
         <Table tableComponent={TableComponent} />
         <TableHeaderRow showSortingControls />
-        <TableFilterRow className="asd" />
+        <TableFilterRow
+          editorComponent={TableFilterEditorComponent}
+          showFilterSelector
+        />
       </Grid>
     </React.Fragment>
   );
