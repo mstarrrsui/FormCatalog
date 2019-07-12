@@ -23,18 +23,16 @@ import {
 } from "@devexpress/dx-react-grid";
 import { css, jsx } from "@emotion/core";
 import Spinner from "./Spinner";
+import styled from "@emotion/styled";
 
-const TableComponent = ({ ...restProps }) => (
-  <Table.Table {...restProps} className="table-sm" />
-);
-
-const myFilterInputClass = css`
-  height: 24px;
+const StyledTable = styled(Table.Table)`
+  .form-control {
+    height: calc(1em + 0.75rem + 2px);
+  }
 `;
-
-const TableFilterEditorComponent: React.SFC<TableFilterRow.EditorProps> = ({
-  ...restProps
-}) => <TableFilterRow.Editor {...restProps} css={myFilterInputClass} />;
+const TableComponent = ({ ...restProps }) => (
+  <StyledTable {...restProps} className="table-sm" />
+);
 
 const MyGrid = () => {
   const [sorting, setSorting] = React.useState<Array<Sorting>>([
@@ -70,10 +68,7 @@ const MyGrid = () => {
         <IntegratedSorting />
         <Table tableComponent={TableComponent} />
         <TableHeaderRow showSortingControls />
-        <TableFilterRow
-          editorComponent={TableFilterEditorComponent}
-          showFilterSelector
-        />
+        <TableFilterRow showFilterSelector />
       </Grid>
     </React.Fragment>
   );
